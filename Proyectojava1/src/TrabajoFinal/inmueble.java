@@ -4,6 +4,12 @@
  * and open the template in the editor.
  */
 package TrabajoFinal;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
 import java.util.Scanner;
 import java.math.BigDecimal;
 import java.util.Objects;
@@ -13,9 +19,9 @@ import java.util.ArrayList;
  * @author LIFE
  */
 public abstract class inmueble {
+//--------------------------------Scann-----------------------------------------    
 Scanner sc2 = new Scanner(System.in);
-    
-//------------------------------------------------------------------------------     
+//--------------------------------atributos-------------------------------------     
     public abstract BigDecimal calcularImpuesto();
     
         private String codigoNacional ;
@@ -24,6 +30,7 @@ Scanner sc2 = new Scanner(System.in);
         private BigDecimal valorComercial;
         private int estrato;
         private tipoInmueble tipoDeInmueble;
+//------------------------------hashCode Equals---------------------------------
 
     @Override
     public int hashCode() {
