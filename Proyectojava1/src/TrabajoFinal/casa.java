@@ -5,6 +5,7 @@
  */
 package TrabajoFinal;
 
+import static TrabajoFinal.apartamento.sc;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 
@@ -19,7 +20,16 @@ public class casa extends inmueble{
 //------------------------------------------------------------------------------
     @Override
     public BigDecimal calcularImpuesto() {
-        System.out.println("1. Casa");
+               System.out.println("Codigo nacional");
+            codigoNacional = sc.next();
+        System.out.println("Direcion:");
+            direccion =sc.next();
+        System.out.println("area");
+            area = sc.nextDouble();
+        System.out.println("valor comercial");        
+            valorComercial =sc.nextBigDecimal();
+        System.out.println("Estrato:");
+            estrato = sc.nextInt();
         return null;
     }
     

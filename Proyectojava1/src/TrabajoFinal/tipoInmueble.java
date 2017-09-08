@@ -10,5 +10,5 @@ package TrabajoFinal;
  * @author LIFE
  */
 public enum tipoInmueble {
-    
+    Casa, Lote, Apartamento
 }

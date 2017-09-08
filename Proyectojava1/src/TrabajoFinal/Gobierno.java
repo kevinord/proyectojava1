@@ -5,6 +5,7 @@
  */
 package TrabajoFinal;
 
+import static TrabajoFinal.apartamento.select;
 import java.util.Scanner;
 import java.math.BigDecimal;
 import java.sql.Connection;
@@ -21,9 +22,11 @@ import javax.swing.JOptionPane;
  * @author LIFE
  */
 public class Gobierno {
-    Scanner sc = new Scanner(System.in);
+    static Scanner scanner = new Scanner(System.in);
     String consulta, consulta2;
-
+//-------------------------Variables de Estratos------------------------------------------------------------------------------------
+    static int select = -1;
+    
 //----------------------------------------conexion a la base de datos--------------------------------------------------------------------------------------
     Connection conexion = null;
     Statement comando = null;
@@ -59,8 +62,16 @@ public class Gobierno {
         }
     }
       
-
+//----------------------------------------------------------------------------------------------------------------------------------
+      
+        
 public static void main (String[]args){
+       inmueble Inmue = new inmueble() {
+           @Override
+           public BigDecimal calcularImpuesto() {
+               throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+           }
+       };
        ciudadano persona = new ciudadano();
        lote Lote = new lote();
        casa Casa = new casa();
@@ -68,6 +79,43 @@ public static void main (String[]args){
     persona.getId();
     persona.getNombre();
     persona.getApellido();
+    System.out.println("--------------------------------------");
+   //--------------------------------------------------------------------------
+   //Apt.calcularImpuesto();
+while(select != 0){
+    try{
+        System.out.println("Elige opción:"+
+                          "\n1.- Casa" +
+	  		  "\n2.- Apartamento\n" +
+			  "3.- Lote\n"+
+                "--------------------------------------");
+				//Recoger una variable por consola 
+                                 select = Integer.parseInt(scanner.nextLine()); 
+    switch(select){
+            case 1:
+               Casa.calcularImpuesto();
+                
+		break;
+            case 2: 
+                 Apt.calcularImpuesto();
+                break;
+            case 3: 
+		Lote.calcularImpuesto();
+		break;
+            default:
+                System.out.println("Eleccion no valida");
+        }
+   }
+                catch(Exception e){
+				System.out.println("Uoop! Error!");
+                }
+      break;
+   }
+
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+
+
 //-------------------------------consulta --------------------------------------------------------------------------------------------------------------------
       try {
         Gobierno db = new Gobierno();
@@ -84,7 +132,9 @@ public static void main (String[]args){
                         "\nApellido: " + db.registro.getString(3));
               
                 System.out.println("------------------------------------------");
+            break;
             }
+            
       }
           catch (SQLException ex) {
             Logger.getLogger(inmueble.class.getName()).log(Level.SEVERE, null, ex);

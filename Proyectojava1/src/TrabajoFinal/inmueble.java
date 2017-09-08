@@ -4,12 +4,7 @@
  * and open the template in the editor.
  */
 package TrabajoFinal;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import javax.swing.JOptionPane;
+
 import java.util.Scanner;
 import java.math.BigDecimal;
 import java.util.Objects;
@@ -24,12 +19,19 @@ Scanner sc2 = new Scanner(System.in);
 //--------------------------------atributos-------------------------------------     
     public abstract BigDecimal calcularImpuesto();
     
-        private String codigoNacional ;
-        private String direccion;
-        private double area;
-        private BigDecimal valorComercial;
-        private int estrato;
-        private tipoInmueble tipoDeInmueble;
+        public String codigoNacional ;
+        public String direccion;
+        public double area;
+        public BigDecimal valorComercial;
+        public int estrato;
+        public tipoInmueble tipoDeInmueble;
+//------------------------------------------------------------------------------
+    static int E1, E2, E3, E4,E5, E6; //Variables
+//-------------------------Variables Area--------------------------------------------------------------------------------------------------    
+    static double A1 = 10.5, A2 = 15.5, A3 = 11.5, A4 = 14.5, A5 = 16.5, A6 = 13.5;
+//-----------------------------------------------------------------------------------------------------------------------------------------
+   static double Vc1 = 1.000000, Vc2 = 2.050000 ,Vc3 = 78.600300, Vc4 = 500.645000,Vc5 = 90.855000, Vc6 = 540.540000;
+   
 //------------------------------hashCode Equals---------------------------------
 
     @Override
@@ -109,17 +111,18 @@ Scanner sc2 = new Scanner(System.in);
        return estrato;
    }
 //-------------------------------------------------------------------------------
- public enum tipoInmueble{
-        uno("casa"), dos("Apartamento"), tres("Lote");
-private final String inmueble;
-private tipoInmueble(String a ){
-    inmueble= a;
-}
-    public String getInmueble(){
-        return inmueble;
+
+
+    public tipoInmueble getInmueble(){
+        return tipoDeInmueble;
     } 
-    
+
+    @Override
+    public String toString() {
+        return "inmueble{" + "sc2=" + sc2 + ", codigoNacional=" + codigoNacional + ", direccion=" + direccion + ", area=" + area + ", valorComercial=" + valorComercial + ", estrato=" + estrato + ", tipoDeInmueble=" + tipoDeInmueble + '}';
     }
+    
+    
 
      /*  public tipoInmueble getTipoDeInmueble(){
       
@@ -132,13 +135,8 @@ private tipoInmueble(String a ){
      return tipoDeInmueble;
      
  }*/
-//-------------------------------------------------------------------------------
-
- //------------------------------------------------------------------------------
-
-    @Override
-    public String toString() {
-        return "inmueble{" + "sc2=" + sc2 + ", codigoNacional=" + codigoNacional + ", direccion=" + direccion + ", area=" + area + ", valorComercial=" + valorComercial + ", estrato=" + estrato + ", tipoDeInmueble=" + tipoDeInmueble + '}';
-    }
 
 }
+
+
+
